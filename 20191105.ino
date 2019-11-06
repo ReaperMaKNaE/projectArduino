@@ -9,10 +9,12 @@
  * Undergraduated student
  * 
  * 2019.11.04
+ * 2019.11.06
  * 
  * Modified history :
  * 
  *            2019.11.04, TFT LCD module is added
+ *            2019.11.06, Library for prediction is added
  *            
  *   NOTE : To make Air cleaner for the weak and the elderly,
  *          Smart functions are used in air cleaner. 
@@ -33,10 +35,11 @@
 #include "RTClib.h"
 #include <Wire.h>
 #include "DHT11.h"
+#include <ForWarning_1.0.h>
 
 #define SerialDebugging true
 
-int dustSensorPin2nd = A0;
+int dustAnalogPin = A0;
 int gasSensorPin = A1;
 int dustDigitalPin = 12;
 int dustSensorPin = 2;
@@ -67,6 +70,7 @@ float stop_time = 9680;
 //int wifiPin = 4;
 
 SoftwareSerial bluetoothModule(bluetoothTXDPin, bluetoothRXDPin);
+ForWarning dataPrediction;
 DHT11 dht11(dht11Pin);  
 RTC_DS1307 RTC;
 
@@ -75,6 +79,7 @@ Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_MOSI, TFT_SCLK, TFT_RS
 LedControl lc = LedControl(ledMatrixDIN,ledMatrixCLK,ledMatrixCS,NBR_MTX);
 
 unsigned long previousTime = 0;
+unsigned long previousCheckDustTime = 0;
 
 //Define hours and minutes for HanguelTime
 byte hours[12][3]={
@@ -121,7 +126,9 @@ void setup(void) {
   }
   Wire.begin();
   RTC.begin();
-  RTC.adjust(DateTime("Nov 5 2019", "19:10:00"));    
+  RTC.adjust(DateTime("Nov 5 2019", "19:10:00"));
+  dataPrediction.resetAll();
+  dataPrediction.getNumberOfData(10);
 
   //digitalOUT(buzzer & dust)
   pinMode(buzzerPin,OUTPUT);
@@ -146,14 +153,22 @@ void loop() {
   float temp, humi;
   float dustValue = 0;
   float dustDensityug = 0;
-
+  int checkDust = 0;
+  /*
+  float gasData = analogRead(gasSensorPin);
+  float filteredGasData;
+  float dustData = analogRead(dustSensorPin);
+  float filteredDustData;
+  
+  dataPrediction.SaveDataOfDust(dustData);
+  filteredDustData = dataPrediction.CalculateFilteredDataForDust();
+  */
   //Use millis, check humi, temp, time
   //Additionally, send to bluetooth
   //At RTC, only print hours.
   //Minute will use the other one
-  if(dustSensorTime > previousDustSensorTime + 40){
-    dustValue = 
-    
+  if(dustSensorTime > previousCheckDustTime + 9720){
+    //Timer이용해서 한번 짜보기
   }
   if(currentTime>previousTime+2000){
     if(now.hour()==0 || now.hour()==12){
@@ -284,7 +299,8 @@ void loop() {
   tft.println(analogRead(gasSensorPin));
   tft.println("");
   tft.println(" DUST :");
-  tft.println("   150");
+  tft.print("   ");
+  tft.println("filteredDustData");
 }
 
 //Turn on LED as following minute value of RTC
