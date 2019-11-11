@@ -41,7 +41,7 @@
 
 int dustAnalogPin = A0;
 int gasSensorPin = A1;
-int dustDigitalPin = 12;
+//int dustDigitalPin = 12;
 int dustSensorPin = 2;
 int dht11Pin = 3;
 int bluetoothRXDPin = 4;
@@ -63,7 +63,10 @@ int ledMatrixCS = 24;
 //waiting time 40ms
 int sampling = 280;
 int waiting = 40;
-float stop_time = 9680;
+float stopTimeForDust = 9680;
+int checkSampling = 0;
+int checkWaiting = 0;
+int checkStoptime = 0;
 
 //15+5+SDA,SDL(2)= 20(analog 2/ digital 18);
 //Wifi is not decided yet
@@ -154,6 +157,32 @@ void loop() {
   float dustValue = 0;
   float dustDensityug = 0;
   int checkDust = 0;
+  
+  if(checkSampling == 0){
+    digitalWrite(dustSensorPin, LOW);
+    if(dustSensorTime > previousCheckDustTime + sampling){
+      dustValue = analogRead(dustAnalogPin);
+      checkSampling = 1;
+      previousCheckDustTime = dustSensorTime;
+    }
+  } else if(checkSampling == 1){
+    if(checkWaiting == 0){
+      if(dustSensorTime>previousCheckDustTime+waiting){
+        digitalWrite(dustSensorPin, HIGH);
+        checkWaiting = 1;
+        previousCheckDustTime = dustSensorTime;
+      }
+    } 
+    else {
+      if(dustSensorTime>previousCheckDustTime+stopTimeForDust){
+        dustDensityug = (float)(0.172*(dustValue*(5.0/1024))-0.099)*1000;
+        Serial.print("Dust density [ug/m^3]: ");
+        Serial.println(dustDensityug);
+        previousCheckDustTime = dustSensorTime;
+        checkSmapling=0;
+      }
+    }
+  }
   /*
   float gasData = analogRead(gasSensorPin);
   float filteredGasData;
@@ -167,9 +196,7 @@ void loop() {
   //Additionally, send to bluetooth
   //At RTC, only print hours.
   //Minute will use the other one
-  if(dustSensorTime > previousCheckDustTime + 9720){
-    //Timer이용해서 한번 짜보기
-  }
+
   if(currentTime>previousTime+2000){
     if(now.hour()==0 || now.hour()==12){
       clearTimeDisplayHour();
