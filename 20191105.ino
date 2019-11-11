@@ -176,8 +176,8 @@ void loop() {
     else {
       if(dustSensorTime>previousCheckDustTime+stopTimeForDust){
         dustDensityug = (float)(0.172*(dustValue*(5.0/1024))-0.099)*1000;
-        Serial.print("Dust density [ug/m^3]: ");
-        Serial.println(dustDensityug);
+        //Serial.print("Dust density [ug/m^3]: ");
+        //Serial.println(dustDensityug);
         previousCheckDustTime = dustSensorTime;
         checkSmapling=0;
       }
@@ -192,6 +192,12 @@ void loop() {
   dataPrediction.SaveDataOfDust(dustData);
   filteredDustData = dataPrediction.CalculateFilteredDataForDust();
   */
+  dataPrediction.SaveDataOfDust(dustDensityug);
+  filteredDustData = dataPrediction.CalculateFilteredDataForDust();
+  Serial.print("Dust density : ");
+  Serial.print(dustDensityug);
+  Serial.print(" Filtered Dust Density : ");
+  Serial.println(filteredDustData);
   //Use millis, check humi, temp, time
   //Additionally, send to bluetooth
   //At RTC, only print hours.
@@ -327,7 +333,7 @@ void loop() {
   tft.println("");
   tft.println(" DUST :");
   tft.print("   ");
-  tft.println("filteredDustData");
+  tft.println(filteredDustData);
 }
 
 //Turn on LED as following minute value of RTC
