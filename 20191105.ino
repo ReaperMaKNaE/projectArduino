@@ -148,7 +148,7 @@ void loop() {
 
   //To use millis, use unsigned long
   unsigned long currentTime = millis();
-  unsigned long dustSensorTime = millis();
+  unsigned long dustSensorTime = micros();
   DateTime now = RTC.now();
   digitalWite(dustDigitalPin,LOW);
 
