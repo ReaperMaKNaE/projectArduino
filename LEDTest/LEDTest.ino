@@ -113,8 +113,8 @@ void loop() {
   if(NumOfLed == 0) {
     if(Row == 0) {
        if(Col == 0) { // single LED on 1st Col
-         //Row는 decoder에 따라 행동.
-         //Col은 HIGH가 꺼지는 것, LOW가 켜지는 것
+         //Row는 decoder에 따라 행동. => Update하면서 decoder 사용 X
+         //Col은 Low가 꺼지는 것, High가 켜지는 것
          digitalWrite(row1, LOW);
          digitalWrite(row2, HIGH);
          digitalWrite(row3, HIGH);
@@ -162,7 +162,6 @@ void loop() {
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-    }
        else if(Col == 3) { // single LED line on all Col
          digitalWrite(row1, LOW);
          digitalWrite(row2, HIGH);
@@ -179,205 +178,593 @@ void loop() {
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
+       else if(Col == 4) { // single LED line on all Col
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+    }
     else if(Row == 1) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 3) { // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else if(Row == 2) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else if(Row == 3) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else if(Row == 4) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else if(Row == 5) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else if(Row == 6) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
@@ -386,200 +773,328 @@ void loop() {
   else if(NumOfLed == 1) {
     if(Row == 0 || Row == 4) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else if(Row == 1 || Row == 5) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2){ // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       }
+       else if(Col == 3){ // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4){ // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else if(Row == 2 || Row == 6) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       }
+       else if(Col == 3) { // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED line on all Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
+         delayMicroseconds(delayForLed);
+         TurnOffAll();
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
@@ -588,184 +1103,164 @@ void loop() {
   else if(NumOfLed == 2) {
     if( Row == 0 || Row == 2 || Row == 4 || Row == 6) {
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED line on all Col
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       }
+       else if(Col == 3) { // single LED line on all Col
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       }
+       else if(Col == 4) { // single LED line on all Col
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, HIGH);
+         digitalWrite(row6, HIGH);
+         digitalWrite(row7, HIGH);
+         digitalWrite(row8, HIGH);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
     }
     else { // 4개씩 켜지는 경우 위쪽 Row
        if(Col == 0) { // single LED on 1st Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
        else if(Col == 1) { // single LED on 2nd Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
-       else { // single LED line on all Col
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       else if(Col == 2) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       }
+       else if(Col == 3) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+       }
+       else if(Col == 4) { // single LED on 2nd Col
+         digitalWrite(row1, HIGH);
+         digitalWrite(row2, HIGH);
+         digitalWrite(row3, HIGH);
+         digitalWrite(row4, HIGH);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
        }
@@ -773,200 +1268,82 @@ void loop() {
   }
   else { // Turn 8 LEDs On
     if(Col == 0) {
-         //0
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //1
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //2
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //3
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //4
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //5
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //6
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //7
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, HIGH);
-         digitalWrite(decoderCol2, LOW);
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
     }
     else if(Col == 1) {
-         //0
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //1
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //2
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //3
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //4
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //5
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //6
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //7
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, HIGH);
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
     }
-    else {
-         //0
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+    else if(Col == 2) {
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, LOW);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         //1
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+    }
+    else if(Col == 3) {
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, LOW);
+         digitalWrite(col2, LOW);
+         digitalWrite(col3, LOW);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
-         //2
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //3
-         digitalWrite(decoderRow1, LOW);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //4
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //5
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, LOW);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //6
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, LOW);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
-         delayMicroseconds(delayForLed);
-         TurnOffAll();
-         //7
-         digitalWrite(decoderRow1, HIGH);
-         digitalWrite(decoderRow2, HIGH);
-         digitalWrite(decoderRow3, HIGH);
-         digitalWrite(decoderCol1, LOW);
-         digitalWrite(decoderCol2, LOW);
+    }
+    else if(Col == 4) {
+         digitalWrite(row1, LOW);
+         digitalWrite(row2, LOW);
+         digitalWrite(row3, LOW);
+         digitalWrite(row4, LOW);
+         digitalWrite(row5, LOW);
+         digitalWrite(row6, LOW);
+         digitalWrite(row7, LOW);
+         digitalWrite(row8, LOW);
+         digitalWrite(col1, HIGH);
+         digitalWrite(col2, HIGH);
+         digitalWrite(col3, HIGH);
+         digitalWrite(col4, HIGH);
          delayMicroseconds(delayForLed);
          TurnOffAll();
     }
