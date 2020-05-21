@@ -1,6 +1,6 @@
-int switchForNumOfLed = 9;
-int switchForCol = 10;
-int switchForRow = 11;
+int switchForNumOfLed = 40;
+int switchForCol = 42;
+int switchForRow = 44;
 
 int NumOfLed = 0;
 int Col = 0;
