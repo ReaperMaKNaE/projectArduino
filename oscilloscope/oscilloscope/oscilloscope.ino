@@ -48,7 +48,19 @@ unsigned long readStartTime = 0;
 int sampleRate = 1;
 
 
-
+/*
+ * 기본 세팅
+ * 
+ * GPIO 2,3을 GND(330옴 연결해서)
+ * OLED 128x64 i2C
+ * SCL -> A5
+ * SDA -> A4
+ * VCC -> +5V
+ * GND -> GND
+ * 
+ * A0를 가져다대면 voltage 파형 관찰 가능
+ * 
+ */
 /********************************************/
 
 //OLED에 글씨 출력하는 함수
