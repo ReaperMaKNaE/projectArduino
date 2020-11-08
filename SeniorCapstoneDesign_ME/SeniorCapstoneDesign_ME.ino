@@ -30,12 +30,12 @@
 // For MPU9250, SCL - A5, SDA - A4
 
 int state = 0;          //Initial state for operation
-int servoPin = 7;       //ServoPin
-int blueTx = 3;         //TXD Pin
-int blueRx = 2;         //RXD Pin
+int servoPin = 12;       //ServoPin
+int blueTx = 2;         //TXD Pin
+int blueRx = 3;         //RXD Pin
 
-int firstDCinput1 = 8;  //Digital pins for PWM control
-int firstDCinput2 = 9;
+int firstDCinput1 = 5;  //Digital pins for PWM control
+int firstDCinput2 = 6;
 int secondDCinput1 = 10;
 int secondDCinput2 = 11;
 
